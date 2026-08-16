@@ -41,10 +41,10 @@ export const metadata: Metadata = {
     siteName: "PharmaCare",
     images: [
       {
-        url: "/icon.png",
-        width: 512,
-        height: 512,
-        alt: "PharmaCare Logo",
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PharmaCare — Pharmacy POS & Inventory Software",
       },
     ],
     locale: "en_US",
