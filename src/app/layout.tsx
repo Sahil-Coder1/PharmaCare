@@ -29,14 +29,14 @@ export const metadata: Metadata = {
   authors: [{ name: "Sahil Verma", url: "https://github.com/Sahil-Coder1" }],
   creator: "Sahil Verma",
   publisher: "PharmaCare",
-  metadataBase: new URL("https://pharmacare.vercel.app"),
+  metadataBase: new URL("https://pharmacarex.vercel.app"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "PharmaCare — Fast, Private POS & Inventory for Modern Pharmacies",
     description: "Lightning-fast pharmacy POS, automated 3-tier batch expiry tracking, daily revenue graphs, and 100% offline privacy.",
-    url: "https://pharmacare.app",
+    url: "https://pharmacarex.vercel.app",
     siteName: "PharmaCare",
     images: [
       {
