@@ -116,7 +116,7 @@ export default function Home() {
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950/80 border border-sky-500/30 text-sky-300 text-xs font-semibold backdrop-blur-md">
             <span>PharmaCare</span>
             <span className="text-slate-500 font-normal">•</span>
-            <span className="text-teal-400 font-mono text-[11px]">v0.2.0</span>
+            <span className="text-teal-400 font-mono text-[11px]">v0.2.1</span>
           </div>
           
           {/* Main Headline */}
@@ -136,7 +136,7 @@ export default function Home() {
           <div className="flex flex-col items-center gap-3.5 mt-2">
             <div className="flex flex-wrap items-center justify-center gap-3.5">
               <a 
-                href="/PharmaCare Setup 0.2.0.exe"
+                href="/PharmaCare Setup 0.2.1.exe"
                 download
                 onClick={handleDownloadClick}
                 className="inline-flex items-center gap-2.5 bg-gradient-to-r from-sky-600 to-teal-600 hover:from-sky-500 hover:to-teal-500 text-white px-6 py-3.5 rounded-xl font-semibold text-sm tracking-tight neumorph-btn transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-sky-950/50"

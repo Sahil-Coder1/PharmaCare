@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { TbBrandGithub } from 'react-icons/tb';
 
 const Footer = () => {
   return (
@@ -19,6 +20,16 @@ const Footer = () => {
           <a href="#features" className="hover:text-slate-400 transition-colors">Features</a>
           <span>•</span>
           <span>100% Offline SQLite</span>
+          <span>•</span>
+          <a
+            href="https://github.com/Sahil-Coder1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 hover:text-slate-300 transition-colors"
+          >
+            <TbBrandGithub className="w-4 h-4 text-slate-400 hover:text-white transition-colors" />
+            <span>GitHub</span>
+          </a>
         </div>
       </div>
     </footer>
