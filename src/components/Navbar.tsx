@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Navbar = () => {
+interface NavbarProps {
+  onDownloadClick?: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onDownloadClick }) => {
   return (
     <header className="fixed top-0 left-0 right-0 h-16 z-50 flex items-center bg-[#060911]/80 backdrop-blur-xl border-b border-white/[0.08]">
       <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 flex justify-between items-center">
@@ -23,7 +27,9 @@ const Navbar = () => {
             Features
           </a>
           <a 
-            href="#features" 
+            href="/PharmaCare Setup 0.2.0.exe" 
+            download
+            onClick={onDownloadClick}
             className="bg-gradient-to-r from-sky-600 to-teal-600 hover:from-sky-500 hover:to-teal-500 text-white px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150"
           >
             Download

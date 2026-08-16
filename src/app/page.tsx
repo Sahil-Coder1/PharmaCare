@@ -1,8 +1,10 @@
 "use client";
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { getDownloadCount, incrementDownloadCount } from '../actions/downloads';
 import {
   TbCreditCard,
   TbHourglass,
@@ -10,10 +12,32 @@ import {
   TbChartLine,
   TbPalette,
   TbCloudLock,
-  TbBrandWindows
+  TbBrandWindows,
+  TbDownload
 } from 'react-icons/tb';
 
 export default function Home() {
+  const [downloadCount, setDownloadCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    getDownloadCount()
+      .then(count => {
+        setDownloadCount(count);
+      })
+      .catch(err => console.error('Failed to fetch download count:', err));
+  }, []);
+
+  const handleDownloadClick = async () => {
+    // Optimistic UI update
+    setDownloadCount(prev => (prev !== null ? prev + 1 : 1));
+    try {
+      const updatedCount = await incrementDownloadCount();
+      setDownloadCount(updatedCount);
+    } catch (err) {
+      console.error('Failed to track download count:', err);
+    }
+  };
+
   const fadeIn = {
     hidden: { opacity: 0, y: 16 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } }
@@ -72,9 +96,9 @@ export default function Home() {
 
   return (
     <main className="min-h-screen flex flex-col bg-[#060911] text-slate-100 selection:bg-sky-500/30 selection:text-white">
-      <Navbar />
+      <Navbar onDownloadClick={handleDownloadClick} />
 
-       <section className="hero-pattern min-h-screen px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center relative overflow-hidden">
+      <section className="hero-pattern min-h-[300px] lg:mt-0 mt-32 lg:min-h-screen px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center relative overflow-hidden">
         
         <motion.div 
           className="max-w-3xl mx-auto flex flex-col items-center gap-5 z-10"
@@ -101,27 +125,46 @@ export default function Home() {
             Fast POS checkout, 3-tier batch expiry radar, daily sales graphs, and offline SQLite storage with optional Dropbox backup.
           </p>
           
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-3.5 mt-2">
-            <a 
-              href="#features" 
-              className="inline-flex items-center gap-2.5 bg-gradient-to-r from-sky-600 to-teal-600 hover:from-sky-500 hover:to-teal-500 text-white px-6 py-3.5 rounded-xl font-semibold text-sm tracking-tight neumorph-btn transition-all duration-200 hover:-translate-y-0.5"
-            >
-              <TbBrandWindows className="w-4 h-4" />
-              <span>Download for Windows</span>
-            </a>
-            <a 
-              href="#features" 
-              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-sm text-slate-300 bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-slate-500 backdrop-blur-md transition-all duration-200"
-            >
-              <span>Explore Features</span>
-            </a>
+          {/* CTA Buttons & Download Count */}
+          <div className="flex flex-col items-center gap-3.5 mt-2">
+            <div className="flex flex-wrap items-center justify-center gap-3.5">
+              <a 
+                href="/PharmaCare Setup 0.2.0.exe"
+                download
+                onClick={handleDownloadClick}
+                className="inline-flex items-center gap-2.5 bg-gradient-to-r from-sky-600 to-teal-600 hover:from-sky-500 hover:to-teal-500 text-white px-6 py-3.5 rounded-xl font-semibold text-sm tracking-tight neumorph-btn transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-sky-950/50"
+              >
+                <TbBrandWindows className="w-5 h-5" />
+                <span>Download for Windows</span>
+              </a>
+              <a 
+                href="#features" 
+                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-sm text-slate-300 bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-slate-500 backdrop-blur-md transition-all duration-200"
+              >
+                <span>Explore Features</span>
+              </a>
+            </div>
+
+            {downloadCount !== null && downloadCount >= 10 ? (
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950/50 border border-sky-500/20 text-xs text-slate-300 backdrop-blur-sm">
+                <TbDownload className="w-3.5 h-3.5 text-sky-400" />
+                <span>
+                  <strong className="text-white font-semibold">{downloadCount.toLocaleString()}</strong>+ downloads
+                </span>
+              </div>
+            ):(
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950/50 border border-sky-500/20 text-xs text-slate-300 backdrop-blur-sm">
+                <span>
+                  Be one of our first users
+                </span>
+              </div>
+            )}
           </div>
         </motion.div>
 
       </section>
 
-       <section id="features" className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
+      <section id="features" className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
         <div className="text-center max-w-xl mx-auto mb-12">
           <h2 className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
             Key Features
@@ -153,7 +196,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
       <Footer />
     </main>
   );
