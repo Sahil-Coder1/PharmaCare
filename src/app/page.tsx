@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { getDownloadCount, incrementDownloadCount } from '../actions/downloads';
@@ -15,6 +15,18 @@ import {
   TbBrandWindows,
   TbDownload
 } from 'react-icons/tb';
+
+const fadeIn: Variants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { 
+      duration: 0.45, 
+      ease: [0.22, 1, 0.36, 1] 
+    } 
+  }
+};
 
 export default function Home() {
   const [downloadCount, setDownloadCount] = useState<number | null>(null);
@@ -36,11 +48,6 @@ export default function Home() {
     } catch (err) {
       console.error('Failed to track download count:', err);
     }
-  };
-
-  const fadeIn = {
-    hidden: { opacity: 0, y: 16 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } }
   };
 
   const bentoGrid = [
