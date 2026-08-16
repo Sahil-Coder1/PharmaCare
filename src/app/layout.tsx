@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -8,8 +9,8 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "PharmaCare — Fast, Private POS & Inventory Software for Modern Pharmacies",
-  description: "PharmaCare is a fast, offline-first pharmacy POS and inventory management desktop software. Features instant search, 3-tier batch expiry radar, daily sales graphs, thermal receipt printing, and SQLite local storage with optional Dropbox cloud backup.",
+  title: "PharmaCare — Fast Pharmacy POS & Inventory Software",
+  description: "Fast, offline-first pharmacy POS and inventory software with instant search, 3-tier batch expiry radar, sales analytics, and receipt printing.",
   icons: {
     icon: "/icon.png",
     shortcut: "/icon.png",
@@ -34,8 +35,8 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "PharmaCare — Fast, Private POS & Inventory for Modern Pharmacies",
-    description: "Lightning-fast pharmacy POS, automated 3-tier batch expiry tracking, daily revenue graphs, and 100% offline privacy.",
+    title: "PharmaCare — Fast Pharmacy POS & Inventory Software",
+    description: "Fast, offline-first pharmacy POS and inventory software with instant search, 3-tier batch expiry radar, sales analytics, and thermal receipt printing.",
     url: "https://pharmacarex.vercel.app",
     siteName: "PharmaCare",
     images: [
@@ -51,8 +52,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "PharmaCare — Modern Pharmacy POS & Inventory Software",
-    description: "Fast POS checkout, 3-tier batch expiry radar, daily sales graphs, and offline SQLite storage.",
+    title: "PharmaCare — Fast Pharmacy POS & Inventory Software",
+    description: "Fast, offline-first pharmacy POS and inventory software with instant search, 3-tier batch expiry radar, sales analytics, and thermal receipt printing.",
     images: ["/icon.png"],
     creator: "@SahilVerma",
   },
@@ -101,7 +102,22 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-14SCNV59E4"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-14SCNV59E4');
+          `}
+        </Script>
+        {children}
+      </body>
     </html>
   );
 }

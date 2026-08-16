@@ -1,0 +1,37 @@
+# PharmaCare
+
+> Fast, private POS and inventory management desktop software built for modern retail pharmacies and medical stores.
+
+PharmaCare is a 100% offline-first Windows desktop application designed to streamline billing, track drug expiration, manage inventory, and provide daily sales revenue analytics without cloud lock-in.
+
+## Key Features
+
+- [Speed POS & Fast Billing](https://pharmacarex.vercel.app/#features): Quick medicine search, keyboard shortcuts, and instant thermal / PDF receipt printing.
+- [3-Tier Expiry & Stock Radar](https://pharmacarex.vercel.app/#features): Automated alerts for expiring soon, low stock, and out-of-stock items.
+- [Offline SQLite Database](https://pharmacarex.vercel.app/#features): Full local data ownership and privacy with optional Dropbox cloud synchronization.
+- [Sales Analytics & Margin Tracking](https://pharmacarex.vercel.app/#features): Real-time daily revenue graphs and gross profit margin tracking.
+- [Bulk CSV Import & Export](https://pharmacarex.vercel.app/#features): Easily import medicine catalogs and export reports in CSV format.
+- [Custom Themes & GST Invoicing](https://pharmacarex.vercel.app/#features): Multi-theme support (Dark Mode) with customizable receipt headers and GST details.
+
+## Technical Details
+
+- Platform: Windows 10, Windows 11 (64-bit)
+- Architecture: Offline-first desktop application with local SQLite database
+- Current Version: v0.2.1
+- License: Free
+
+## Developer & Author
+
+- **Developer:** Sahil Verma
+- **Role:** Full Stack Web Developer & Software Engineer
+- **Portfolio:** [https://sahil-coder.vercel.app](https://sahil-coder.vercel.app)
+- **GitHub:** [https://github.com/Sahil-Coder1](https://github.com/Sahil-Coder1)
+- **LinkedIn:** [https://www.linkedin.com/in/sahil-verma1](https://www.linkedin.com/in/sahil-verma1)
+- **Summary:** Specializes in building high-performance, user-centric web and desktop applications using React, Next.js, Node.js, TypeScript, and SQLite.
+
+## Links & Resources
+
+- [Official Website](https://pharmacarex.vercel.app): Download the latest installer and explore full product features.
+- [Windows Download](https://pharmacarex.vercel.app/PharmaCare%20Setup%200.2.1.exe): Direct download link for the PharmaCare Windows installer (.exe).
+- [Developer Portfolio](https://sahil-coder.vercel.app): Explore developer projects, skills, and background.
+- [Developer GitHub](https://github.com/Sahil-Coder1): Developer profile and open-source repositories.
