@@ -43,7 +43,7 @@ export const metadata: Metadata = {
       {
         url: "/og-image.png",
         width: 1200,
-        height: 627,
+        height: 630,
         alt: "PharmaCare — Pharmacy POS & Inventory Software",
       },
     ],
