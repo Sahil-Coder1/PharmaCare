@@ -27,7 +27,7 @@ const Navbar: React.FC<NavbarProps> = ({ onDownloadClick }) => {
             Features
           </a>
           <a 
-            href="/PharmaCare Setup 0.2.2.exe" 
+            href="/PharmaCare Setup 0.2.3.exe" 
             download
             onClick={onDownloadClick}
             className="bg-gradient-to-r from-sky-600 to-teal-600 hover:from-sky-500 hover:to-teal-500 text-white px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150"
