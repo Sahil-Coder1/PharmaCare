@@ -136,7 +136,7 @@ export default function Home() {
           <div className="flex flex-col items-center gap-3.5 mt-2">
             <div className="flex flex-wrap items-center justify-center gap-3.5">
               <a 
-                href="/PharmaCare Setup 0.2.1.exe"
+                href="/PharmaCare Setup 0.2.2.exe"
                 download
                 onClick={handleDownloadClick}
                 className="inline-flex items-center gap-2.5 bg-gradient-to-r from-sky-600 to-teal-600 hover:from-sky-500 hover:to-teal-500 text-white px-6 py-3.5 rounded-xl font-semibold text-sm tracking-tight neumorph-btn transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-sky-950/50"
